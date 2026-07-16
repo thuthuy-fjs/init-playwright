@@ -86,6 +86,7 @@ names are hashed/unstable):
 
 ## CI
 
-`.github/workflows/playwright.yml` runs the full suite on every push/PR to `main`/`master` and
-uploads the HTML report as an artifact. Make sure `BASE_URL`, `EMPLOYER_TEST_EMAIL`, and
-`EMPLOYER_TEST_PASSWORD` are configured as repository secrets before enabling this workflow.
+`.github/workflows/playwright.yml` runs the full suite on every pull request targeting
+`develop`, `staging`, or `main`, and uploads the HTML report as an artifact. `BASE_URL`,
+`EMPLOYER_TEST_EMAIL`, and `EMPLOYER_TEST_PASSWORD` must be configured as repository secrets
+(Settings → Secrets and variables → Actions) or the run fails at config-load time.
