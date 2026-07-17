@@ -5,6 +5,10 @@ const EMPLOYER_EMAIL = requiredEnv("EMPLOYER_TEST_EMAIL");
 const EMPLOYER_PASSWORD = requiredEnv("EMPLOYER_TEST_PASSWORD");
 
 test.describe("Admin Login", () => {
+  // The login screen must be reachable without an existing session, so
+  // this suite opts out of the project-level authenticated storageState.
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   test.beforeEach(async ({ adminLoginPage }) => {
     await adminLoginPage.goto();
   });
